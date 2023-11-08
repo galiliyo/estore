@@ -1,0 +1,79 @@
+$search-bar-background-color: #dadada;
+$search-bar-height: 2.5rem;
+$search-bar-border: none;
+
+.search-bar {
+  background-color: #dadada;
+  height: 2.5rem;
+  width: 10rem;
+  border: none;
+}
+
+.header {
+  max-width: 100%;
+  box-shadow: 5px 5px 20px gray;
+  overflow: hidden;
+}
+
+.brand {
+  color: white;
+  margin-left: 3rem;
+  padding: 0.8rem;
+  width: 23%;
+  height: 100%;
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.search-box {
+  width: 75%;
+  height: $search-bar-height;
+  display: inline-block;
+  border: $search-bar-border;
+}
+
+.search-button {
+  width: 10%;
+  height: $search-bar-height;
+  border: $search-bar-border;
+  background-color: $search-bar-background-color;
+}
+
+.dropdown {
+  width: 15%;
+  height: $search-bar-height;
+  border: $search-bar-border;
+  background-color: $search-bar-background-color;
+  font-weight: 600;
+}
+
+.login-container {
+  color: white;
+  width: 15%;
+  padding: 0 4rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .user-icon {
+    margin-right: 0.4rem;
+    padding: 0.2rem;
+    font-size: 1.3rem;
+  }
+}
+
+.cart-wishlist {
+  width: 8%;
+
+  .list-item {
+    color: white;
+    list-style-type: none;
+    display: inline-block;
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+  }
+}

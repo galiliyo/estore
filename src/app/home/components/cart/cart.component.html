@@ -1,0 +1,55 @@
+<ng-container *ngIf="!cartStore.cart.products.length">
+  <div class="p-4 ec-main-div">
+    <span class="my-5 ec-text"> The Cart Is Empty </span>
+    <hr/>
+    <div (click)='navigateToHome()' class="btn btn-warning my-3">
+      <span style="font-weight:500"> Continue Shopping </span>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="cartStore.cart$ | async as cart">
+  <div class="row my-5 fc-main-div">
+    <div class="col-8 p-4">
+      <div *ngFor="let cartItem of cart.products" class="row cart-item-card">
+        <div class="col-4">
+          <img
+            [src]="'../../../../assets/images/' + cartItem.product.product_img"
+          />
+        </div>
+        <div class="col-8">
+          <div class="p-3 cart-item-details">
+            <span class="cart-item-name">
+              {{ cartItem.product.product_name }}
+            </span>
+            <div class="cart-item-price">
+              <span> {{ cartItem.product.price | currency }} </span>
+            </div>
+            <app-ratings [score]="cartItem.product.ratings"></app-ratings>
+            <hr/>
+            <div class="cart-edit-container">
+              <div
+                (click)="updateQuantity($event, cartItem)"
+                class="btn-group mx-3"
+              >
+                <div class="btn btn-outline-dark">
+                  <span> - </span>
+                </div>
+                <div class="btn">{{ cartItem.quantity }}</div>
+                <div class="btn btn-outline-dark">
+                  <span> + </span>
+                </div>
+              </div>
+              <div
+                (click)="removeItem(cartItem)"
+                class="btn btn-outline-danger mx-4"
+              >
+                <span> <fa-icon [icon]="faTrash"></fa-icon> Remove Item </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr/>
+      </div>
+    </div>
+  </div>
+</ng-container>

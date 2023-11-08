@@ -1,0 +1,32 @@
+<div class="side-navigation">
+  <div class="accordion">
+    <div
+      *ngFor="let cat of mainCategories; let i = index"
+      class="accordion-item individual-category"
+    >
+      <div class="accordion-header">
+        <button
+          [attr.data-bs-target]="'#collapse' + i"
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          type="button"
+        >
+          <div class="category-title">
+            {{ cat.category }}
+          </div>
+        </button>
+      </div>
+      <div class="accordion-collapse collapse show" id="collapse{{ i }}">
+        <div class="accordion-body">
+          <ul>
+            <li *ngFor="let subCat of getCategories(cat.id)" class="sub-items">
+              <div (click)="selectSubCategory(subCat.id)">
+                {{ subCat.category }}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

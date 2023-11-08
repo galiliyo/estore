@@ -1,0 +1,37 @@
+<div *ngIf="product" class=" row  product-details-container">
+  <div class="row mb-4">
+    <div class="col-5 justify-end "><a (click)="goBack()">&lt; back</a></div>
+    <hr/>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-5  product-image-container  align-items-end">
+      <img [src]="'../../../../assets/images/' + product.product_img " />
+    </div>
+
+
+    <div class="col-7 product-information-container mb-8">
+      <span id="product-name"> {{ product.product_name }} </span>
+      <app-ratings [rating]="product.rating"></app-ratings>
+      <div class="product-price">
+        Price : <span class="price"> {{ product.price | currency }} </span>
+        <div>Inclusive of all taxes.</div>
+      </div>
+      <div class="my-3 product-description">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="col-9 d-flex justify-content-end">
+        <button (click)="addToCart()" class="btn btn-primary">
+          <fa-icon [icon]="shoppingCartIcon" class="mr-3"/>
+          Add to Cart
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+@import "../../../../styles.scss";
+
+.side-navigation {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  box-shadow: 1px 0px 14px 0px lightgray;
+  height: 97%;
+  border-radius: 1rem;
+  width: 15rem;
+
+  .section-title {
+    padding: 1rem;
+
+    h3 {
+    }
+  }
+
+  .individual-category {
+    .sub-items {
+      display: flex;
+      color: black;
+      cursor: pointer;
+      padding: 1rem;
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+}

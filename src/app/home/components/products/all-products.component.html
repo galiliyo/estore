@@ -1,0 +1,37 @@
+<div class="page-container">
+  <app-side-navigation
+    (subCategorySelected)="onSelectSubCategory($event)"
+  ></app-side-navigation>
+  <div class="grid-container mx-4">
+    <div
+      *ngFor="let product of productsStore.products$ | async"
+      class="p-3 product-card"
+    >
+      <div class="product-image-container">
+        <a routerLink="../product/{{ product.id }}">
+          <img [src]="'../../../../assets/images/' + product.product_img" />
+        </a>
+      </div>
+      <div class="product-info">
+        <h5>
+          <a routerLink="../product/{{ product.id }}">{{
+            product.product_name
+          }}</a>
+        </h5>
+        <p class="product-price">{{ product.price | currency }}</p>
+        <p><app-ratings [score]="product.ratings"></app-ratings></p>
+        <div (click)="addToCart(product)" class="my-3">
+          <div class="cart-button">
+            <div class="cart-icon-container">
+              <fa-icon [icon]="faShoppingCart"></fa-icon>
+            </div>
+            <div class="cart-text-container mx-3">
+              <p>Add to Cart</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!productsStore.products.length">No products found</div>
+  </div>
+</div>
